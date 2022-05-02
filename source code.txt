@@ -1,0 +1,151 @@
+Joseph Carrillo 
+CST-150 C# I 
+Activity 9
+05/01/22
+
+// Class Declaration stubs class
+public class stubs
+{
+
+    //  random object to genrate random number
+    Random random = new Random();
+    // method convert millimeter to meter
+    public void showMeters(int numMillimeters)
+    {
+        decimal meter = (decimal)numMillimeters / (decimal)1000;
+        Console.WriteLine($"The millimeter to meter conversion of {numMillimeters} mm is {meter} m");
+    }
+    // 1. method that takes 2 integers and displays their sum
+    public void sum(int a, int b)
+    {
+        Console.WriteLine($"The sum of {a} and {b} is {a + b}");
+    }
+
+    // 2. method that takes five doubles and returns their average
+    public void average(double a, double b, double c, double d, double e)
+    {
+        double result = (a + b + c + d + e) / 5;
+        Console.WriteLine($"The average of {a},{b},{c},{d},{e} is {result}");
+    }
+
+    // 3. method that returns sum of 2 randomly genrated integers
+    public int sumRandom()
+    {
+        int a = random.Next(1, 1000);
+        int b = random.Next(1, 1000);
+        Console.WriteLine($"The sum of {a} and {b} is {a + b}");
+        return a + b;
+    }
+    //  4. method that take 3 integers return true if their sum is divisible by 3 else false
+    public void sumDivisibleByThree(int a, int b, int c)
+    {
+        Console.WriteLine((a + b + c) % 3 == 0);
+    }
+
+    // 5. method that takes 2 strings and display the string that has fewer characters
+    public void fewerCharacterString(string a, string b)
+    {
+        if (a.Length > b.Length)
+        {
+            Console.WriteLine($"The string {b} has less characters");
+        }
+        else
+        {
+            Console.WriteLine($"The string {a} has less characters");
+        }
+    }
+
+    // 6. method that takes array of doubles and returns largest value in array
+    public double largestValueOfArray(double[] arr)
+    {
+        // Initialize maximum element
+        double max = arr[0];
+        // Traverse array elements from second and
+        // compare every element with current max 
+        for (int i = 1; i < arr.Length; i++)
+            if (arr[i] > max)
+                max = arr[i];
+
+        Console.WriteLine($"The Largest number of array is {max}");
+        return max;
+    }
+
+    // 7. method that generate and returns array of 50 integers values
+    public int[] fiftyIntegersValue()
+    {
+        int[] terms = new int[50];
+        for (int runs = 0; runs < 50; runs++)
+        {
+            terms[runs] = random.Next(1, 1000);
+        }
+        foreach (var item in terms)
+        {
+            Console.WriteLine(item.ToString());
+        }
+        return terms;
+    }
+
+    // 8. method that takes two bool values and return true if they have same value
+    public void boolPrint(bool a, bool b)
+    {
+        Console.WriteLine(a == b);
+    }
+
+    // 9. method that takes an int and double and returns their product
+    public double product(int a, double b)
+    {
+        Console.WriteLine($"The sum of {a} and {b} is {a * b}");
+        return a * b;
+    }
+
+    // 10. method that takes two-dimesninal array of integers and return average of the entries
+    public void averageOfTwoDimensionalArray(int[,] array)
+    {
+
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            int Avg = 0;
+            for (int l = 0; l < array.GetLength(1); l++)
+            {
+                Avg += array[i, l];
+                Console.Write(array[i, l] + ". ");
+            }
+            Console.Write(" ");
+            Avg = Avg / 3;
+            Console.Write("The Average is " + Avg);
+            Console.Write("\n");
+        }
+    }
+
+    // Main Method
+    public static void Main(String[] args)
+    {
+
+        // Creating object
+        stubs Object = new stubs();
+        // millimeter to meter method
+        Object.showMeters(1);
+        // 1 method
+        Object.sum(10, 15);
+        // 2 method
+        Object.average(10, 15, 25, 35, 45);
+        //3 method
+        Object.sumRandom();
+        //4 method
+        Object.sumDivisibleByThree(3, 9, 3);
+        // 5 method
+        Object.fewerCharacterString("Hello", "World!");
+        // 6 method
+        double[] arr = { 1, 2, 3, 4, 5 };
+        Object.largestValueOfArray(arr);
+        // 7 method
+        Object.fiftyIntegersValue();
+        // 8 method
+        Object.boolPrint(false, false);
+        // 9 method
+        Object.product(1, 2.55);
+        // 10 method
+        int[,] arr1 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+        Object.averageOfTwoDimensionalArray(arr1); // average
+    }
+}
